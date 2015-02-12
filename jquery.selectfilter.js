@@ -5,7 +5,8 @@
 
         $(this).autocomplete(options).on('click', function(event) {
             var $me = $(this);
-            $me.autocomplete("search", $me.val());
+            var value = options.focusByValue ? $me.val() : "";
+            $me.autocomplete("search", value);
         });
     };
 
@@ -15,7 +16,8 @@
         max: 12,
         autoFill: true,
         mustMatch: true,
-        matchContains: false
+        matchContains: false,
+        focusByValue: true
     };
 
 })(jQuery);
